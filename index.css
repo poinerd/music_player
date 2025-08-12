@@ -1,0 +1,201 @@
+*{
+
+    overflow: hidden;
+  
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  /*font-weight: <weight>;*/
+  color: white;
+  font-style: normal;
+}
+    
+
+
+.main{
+    background-color: black;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container{
+    background-color: rgb(19, 17, 17);
+    margin: auto;
+    width: 70%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+   
+}
+
+
+.music_side_bar{
+    background-color: rgb(0, 0, 0);
+    height: 100%;
+    border-radius: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-items: space-between;
+    box-sizing: border-box;
+ 
+
+}
+
+.music_list{
+    height:100%;
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    padding-left: 20px;
+    overflow-y: scroll;
+}
+
+#add_a_song{
+
+     width:7rem;
+     border-radius: 10px;
+     padding:10px;
+     margin-left: 20px;
+     position: absolute;
+     top:500px;
+     background-color:black ;
+   
+
+}
+
+
+.search{
+    width: 190px;
+    color:rgb(255, 255, 255);
+    border-color: white;
+    border-width:2px;
+    background-color: transparent;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    padding:11px
+    
+}
+
+.one_music_card{
+    width:90%;
+    background-color: black;
+    padding:10px;
+    margin-bottom: 10px;
+    border-radius:10px;
+    border-color:white;
+    border-style: solid;
+    border-width: 1px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.music_card{
+    background-color: rgb(0, 0, 0);
+    height: 90%;
+    width: 30%;
+    margin-left:15px;
+
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+
+}
+
+#music_img{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 50%;
+    border-radius: 10px;
+}
+
+.control_buttons{
+    background-color: rgb(19, 19, 19);
+    padding: 15px;
+    border-radius: 25px;
+    margin-top: 15px;
+
+}
+
+.btn_1{
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    padding: 5px;
+    width:3rem
+}
+
+.btn_1 svg{
+    color: rgb(59, 45, 45);
+}
+
+#play{
+       width:4rem;
+       margin: 5px;
+
+}
+
+.music_details{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    align-self: flex-start;
+
+    margin: 0;
+    margin-bottom: 15px;
+    margin-top: 10px;
+
+}
+
+.song_name{
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 1px;
+}
+.artiste_name{
+    font-size: 0.8rem;
+}
+
+.music_position_container{
+    width: 100%;
+
+
+    display: flex;
+    flex-direction: column;
+
+}
+.music_length{
+    width: 100%;
+    background-color: aliceblue;
+    height: 5px;
+}
+.circle{
+    background-color:rgb(255, 43, 43) ;
+    height: 100%;
+    width: 0.4rem;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1000;
+}
+
+.time_stamps{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.time{
+     font-size: 0.6rem;
+     margin-top: 3px
+}
