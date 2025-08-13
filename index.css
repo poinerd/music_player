@@ -5,7 +5,7 @@
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   /*font-weight: <weight>;*/
-  color: white;
+
   font-style: normal;
 }
     
@@ -54,6 +54,7 @@
     width: 100%;
     padding-left: 20px;
     overflow-y: scroll;
+    margin-bottom: 10px;
 }
 
 #add_a_song{
@@ -62,10 +63,19 @@
      border-radius: 10px;
      padding:10px;
      margin-left: 20px;
-     position: absolute;
-     top:500px;
-     background-color:black ;
+     margin-bottom: 20px;
+     background-color: rgb(206, 177, 12); ;
+     text-align: center;
+     justify-content: center;
+     align-items: center;
+     display: flex;
    
+
+}
+#add_a_song:hover{
+    background-color:rgb(255, 255, 255) ;
+    color: black;
+
 
 }
 
@@ -85,8 +95,10 @@
 }
 
 .one_music_card{
+    height: 30px;
     width:90%;
-    background-color: black;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
     padding:10px;
     margin-bottom: 10px;
     border-radius:10px;
@@ -96,6 +108,18 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: flex-start;
+}
+
+.one_music_card:hover{
+    background-color: rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
+    width:88%;
+   
+}
+.one_music_card:active{
+    background-color: rgb(140, 255, 63);
+    
 }
 
 
@@ -110,6 +134,7 @@
     flex-direction: column;
     align-items: center;
     padding: 15px;
+    color:rgb(255, 255, 255);
 
 }
 
@@ -120,11 +145,21 @@
     border-radius: 10px;
 }
 
+
+.music_image{
+    background-color: rgb(255, 255, 255);
+    width: 1rem;
+    height: 50%;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 0.5rem
+}
 .control_buttons{
-    background-color: rgb(19, 19, 19);
+
     padding: 15px;
     border-radius: 25px;
     margin-top: 15px;
+    color:rgb(255, 255, 255);
 
 }
 
@@ -132,18 +167,21 @@
     background-color: rgb(0, 0, 0);
     border-radius: 50%;
     padding: 5px;
-    width:3rem
+    width:3rem;
+    color:rgb(255, 255, 255);
 }
 
 .btn_1 svg{
-    color: rgb(59, 45, 45);
+    color: rgb(255, 255, 255);
 }
 
 #play{
        width:4rem;
        margin: 5px;
+       background-color:rgb(0, 0, 0);
 
 }
+
 
 .music_details{
     display: flex;
@@ -159,11 +197,11 @@
 
 .song_name{
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.7rem;
     margin-bottom: 1px;
 }
 .artiste_name{
-    font-size: 0.8rem;
+    font-size: 0.6rem;
 }
 
 .music_position_container{
@@ -197,5 +235,11 @@
 
 .time{
      font-size: 0.6rem;
-     margin-top: 3px
+     margin-top: 3px;
+   
+    
+}
+
+#time_time{
+    align-content: flex-start;
 }

@@ -25,28 +25,38 @@
                             <span class="artiste_name"> by Hans zimmer</span>
                         </div>
                         
-                        <span class="time" style="margin-left: 300px;">10.00</span>
+                        <span class="time">10.00</span>
                     </div> -->
                 </div>
                 <button class="btn_1" id="add_a_song">+ Add a song</button>
+                <input
+                
+                type="file"
+                id="music_input"
+                accept="audio/*"
+                multiple
+                style="display:none"
+                />
+              
+
 
             </div>
             <div class="music_card">
                 <div id="music_img"></div>
 
                 <div class="music_details">
-                    <span class="song_name">This is a song's name</span>
-                    <span class="artiste_name">This is an artiste's name</span>
+                    <span class="song_name" id="song_name">This is a song's name</span>
+                    <span class="artiste_name" id="artiste_name">This is an artiste's name</span>
                 </div>
                 
                 <div class="music_position_container">
-                    <div class="music_length">
-                        <div class="circle"></div>
+                    <div class="music_length" id="music_length_line" >
+                        <div class="circle" id="progress_circle"></div>
                     </div>
 
                     <div class="time_stamps">
                         <span class="time">0:00</span>
-                         <span class="time">10:00</span>
+                         <span class="time" id="music_length">10:00</span>
                     </div>
                 </div>
 
@@ -56,9 +66,7 @@
                         </svg>
                     </button>
 
-                     <button class="btn_1" id="play"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
-                        </svg>
+                     <button class="btn_1" id="play">
                     </button>
 
                      <button class="btn_1" id="forward"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -73,6 +81,8 @@
         </div>
 
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/jsmediatags@3.9.7/dist/jsmediatags.min.js"></script>
+
     
 </body>
     <script src="index.js"></script>
