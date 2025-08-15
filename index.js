@@ -9,7 +9,9 @@ const prevBtn = document.getElementById("back");
 const musicLength = document.getElementById("music_length")
 const musicLengthLine = document.getElementById("music_length_line")
 const progressCircle = document.getElementById("progress_circle")
-
+const searchedMusicList = document.getElementById("searched_music_list")
+const searchInput = document.getElementById("search_input")
+const searchButton = document.getElementById("search")
 
 
 const AUDIO_PLAYER = new Audio()
@@ -17,11 +19,11 @@ let currentIndex = -1;
 let isPlaying = false
 
 
-const PAUSE = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+const PLAY = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
   <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" />
 </svg>
 `
-const PLAY = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+const PAUSE= `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
                         </svg>`
 
@@ -59,9 +61,6 @@ const loadMusic = ()=>{
     }
 }
 
-
-
-
 // RENDER SONGS LIST
 const renderSongs = () => {
     musicList.textContent = "";
@@ -72,11 +71,11 @@ const renderSongs = () => {
 
         MUSIC_CARD.innerHTML = `
             <div class="music_image"></div>
-            <div>
-                <span class="song_name">${music.title}</span>
-                <span class="artiste_name">${music.artiste}</span>
+            <div class= "artiste_and_song">
+                <p class="song_name">${music.title}</p>
+                <p class="artiste_name">${music.artiste}</p>
             </div>
-            <span class="time">${music.length}</span>
+            <p class="time" id="time_duration">${music.length}</p>
         `;
 
         MUSIC_CARD.addEventListener("click", () => {
@@ -199,6 +198,79 @@ AUDIO_PLAYER.addEventListener('timeupdate', ()=>{
   const percentPlayed = AUDIO_PLAYER.currentTime / AUDIO_PLAYER.duration;
   progressCircle.style.left = `${percentPlayed * progressWidth}px`;
 
+})
+
+
+
+async function fetchMusic(query) {
+    try {
+        let response = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(query)}&entity=musicTrack&limit=10`);
+        if (!response.ok) {
+            console.log("There was an error fetching the song");
+            return;
+        }
+
+        let data = await response.json();
+        console.log(data);
+
+        // Make sure you have this element in HTML
+        searchedMusicList.innerHTML = ""; // clear old search results
+
+        data.results.forEach((music, index) => {
+            searchedMusicList.style.display = 'block'
+            const MUSIC_CARD = document.createElement("div");
+            MUSIC_CARD.className = "one_music_card";
+
+            MUSIC_CARD.innerHTML = `
+                <div class="music_image"></div>
+                <div class="artiste_and_song">
+                    <p class="song_name">${music.trackName}</p>
+                    <p class="artiste_name">${music.artistName}</p>
+                </div>
+                <p class="time" id="time_duration">--:--</p>
+            `;
+
+            MUSIC_CARD.addEventListener("click", () => {
+                AUDIO_PLAYER.src = music.previewUrl; // iTunes gives a preview mp3
+                AUDIO_PLAYER.play();
+                songName.textContent = music.trackName;
+                artisteName.textContent = music.artistName;
+            });
+
+            searchedMusicList.appendChild(MUSIC_CARD);
+        });
+    } catch (error) {
+        console.error("There is an error:", error);
+    }
+}
+
+
+
+searchButton.addEventListener('click',()=>{
+    searchInput.blur()
+    if (searchInput.value!==""){
+        fetchMusic(searchInput.value.trim())
+
+    }
+    else{
+        console.log("you dindt search for anything")
+    }
+})
+
+//let search ="phases"
+
+
+document.addEventListener('click', (event)=>{
+    if( searchedMusicList.style.display === 'block'  && !searchedMusicList.contains(event.target)){
+        searchedMusicList.style.display = "none"
+    }
+})
+
+document.addEventListener('keydown', (event)=>{
+
+    if(event.key==="Enter" && searchInput.value!==""){
+         fetchMusic(searchInput.value.trim())
+    }
 })
 
 renderSongs();

@@ -14,18 +14,20 @@
       
         <div class="container">
             <div class="music_side_bar">
-                <input class="search" placeholder="search your device or internet"></input>
+                <div class="search_section"><input id='search_input' class="search" placeholder="search your device or internet"></input>
+                <button id="search">Search</button></div>
+                <div class="music_list" id="searched_music_list"></div>
                 <div class="music_list" id="music_list">
                     <!-- <div class="one_music_card">
                         <div class="music_image">
 
                         </div>
                         <div>
-                            <span class="song_name">Time</span>
-                            <span class="artiste_name"> by Hans zimmer</span>
+                            <p class="song_name">Time</p>
+                            <p class="artiste_name"> by Hans zimmer</p>
                         </div>
                         
-                        <span class="time">10.00</span>
+                        <p class="time">10.00</p>
                     </div> -->
                 </div>
                 <button class="btn_1" id="add_a_song">+ Add a song</button>
@@ -45,8 +47,8 @@
                 <div id="music_img"></div>
 
                 <div class="music_details">
-                    <span class="song_name" id="song_name">This is a song's name</span>
-                    <span class="artiste_name" id="artiste_name">This is an artiste's name</span>
+                    <p class="card_song_name" id="song_name">This is a song's name</p>
+                    <p class="card_artiste_name" id="artiste_name">This is an artiste's name</p>
                 </div>
                 
                 <div class="music_position_container">
@@ -55,8 +57,8 @@
                     </div>
 
                     <div class="time_stamps">
-                        <span class="time">0:00</span>
-                         <span class="time" id="music_length">10:00</span>
+                        <p class="time">0:00</p>
+                         <p class="time" id="music_length">10:00</p>
                     </div>
                 </div>
 

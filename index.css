@@ -44,6 +44,7 @@
     flex-direction: column;
     justify-items: space-between;
     box-sizing: border-box;
+    box-shadow: inset;
  
 
 }
@@ -64,7 +65,7 @@
      padding:10px;
      margin-left: 20px;
      margin-bottom: 20px;
-     background-color: rgb(206, 177, 12); ;
+     background-color: rgb(12, 206, 93); ;
      text-align: center;
      justify-content: center;
      align-items: center;
@@ -90,7 +91,8 @@
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 15px;
-    padding:11px
+    padding:10px
+    
     
 }
 
@@ -109,6 +111,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    gap: 10px;
 }
 
 .one_music_card:hover{
@@ -129,11 +132,13 @@
     width: 30%;
     margin-left:15px;
 
+    padding: 15px;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding: 15px;
+    
     color:rgb(255, 255, 255);
 
 }
@@ -186,22 +191,52 @@
 .music_details{
     display: flex;
     flex-direction: column;
-    margin: 10px;
-    align-self: flex-start;
-
-    margin: 0;
-    margin-bottom: 15px;
+    justify-content: center;
+    padding-bottom: 0px;
     margin-top: 10px;
+    width: 100%;
 
+    align-self: flex-start;
+    margin-bottom: 5px;
+ 
+  
+
+   
+ 
 }
 
 .song_name{
     font-weight: bold;
     font-size: 0.7rem;
-    margin-bottom: 1px;
+
+
+
+}
+.card_song_name{
+   
+    font-size: 1rem;
+    font-weight: bold;
+    width: 100%;
+  
+    padding: 0px;
+    margin: 0px;
+        padding-bottom: 2px;
+        margin-bottom: 5px;
+
 }
 .artiste_name{
-    font-size: 0.6rem;
+    font-size: 0.7rem;
+    
+   
+  
+}
+.card_artiste_name{
+     font-size: 0.6rem;
+
+
+      margin-top: 0;
+      padding-bottom: 2px;
+
 }
 
 .music_position_container{
@@ -234,12 +269,58 @@
 }
 
 .time{
-     font-size: 0.6rem;
-     margin-top: 3px;
+     font-size: 0.5rem;
+     
+    
    
     
 }
 
 #time_time{
     align-content: flex-start;
+}
+
+.artiste_and_song{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    padding: 0;
+}
+
+#time_duration{
+ 
+    color: rgb(255, 0, 0);
+}
+
+.search_section{
+    background-color: rgb(24, 24, 24);
+    padding: 25px;
+    padding-left: 0px;
+    display: flex;
+    flex-direction: row;
+   align-items: center;
+   justify-items: flex-start;
+    gap: 10px
+
+      
+}
+#search{
+    background-color: rgb(12, 206, 93);;
+    border-radius: 15px;
+    padding: 10px;
+    color: white;
+}
+
+#searched_music_list{
+    padding-top: 20px;
+    background-color: rgb(212, 250, 222);
+    width: 100%;
+    overflow:auto;
+    display: none;
+    margin-left: 15px;
+    border-radius: 10px;
+  
+ 
 }
